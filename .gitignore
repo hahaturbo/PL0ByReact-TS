@@ -1,0 +1,8 @@
+node_modules
+.idea/
+.DS_Store
+dist/*
+dist_*/*
+output_resources
+tsconfig.*.json
+yarn-error.log

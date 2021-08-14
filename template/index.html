@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= htmlWebpackPlugin.options.title %></title>
+  </head>
+  <body>
+    <div id="app" class="app">
+      <div class="loading">加载中……{{aa}}</div>
+    </div>
+    <script>
+      function resize() {
+        document.getElementsByTagName('html')[0].style.fontSize =
+          document.body.clientWidth / 3.75 + 'px';
+      }
+      resize();
+      document.addEventListener('DOMContentLoaded', resize);
+      window.addEventListener('resize', resize);
+    </script>
+  </body>
+</html>
