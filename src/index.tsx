@@ -7,18 +7,19 @@ import './index.less';
 // import main from './until/pl0';
 
 const App = () => {
-    const [isModalVisible, setIsModalVisible] = useState(false);
+    const [visible, setVisible] = useState(false);
 
     const showModal = () => {
-        setIsModalVisible(true);
+        setVisible(true);
     };
 
     const handleOk = () => {
-        setIsModalVisible(false);
+        setVisible(false);
+        showModal();
     };
 
     const handleCancel = () => {
-        setIsModalVisible(false);
+        setVisible(false);
     };
 
     const start = () => {
@@ -27,16 +28,16 @@ const App = () => {
     return (
         <div className="container">
             <h1 style={{ position: 'absolute', top: 50, left: 300 }}>计科3班周厚溧3118004798</h1>
-            <Modal title="请输入" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-                <Input></Input>
+            <Modal title="请输入" visible={visible} onOk={handleOk} onCancel={handleCancel}>
+                <Input placeholder="请输入要输入的值"/>
             </Modal>
             <div className="input">
                 <TextArea rows={20} />
-                <Button onClick={start}>开始</Button>
+                <Button type="primary" onClick={start}>开始</Button>
             </div>
             <div className="output">
                 <TextArea rows={20} />
-                <Button>清空</Button>
+                <Button type='dashed'>清空</Button>
             </div>
         </div>
     );

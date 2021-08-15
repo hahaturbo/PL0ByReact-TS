@@ -1691,8 +1691,8 @@ async function leterpret() {
                         result += '\n'; /*输出换行符到屏幕*/
                         break;
                     case 16:
-                        // readSyncByfs('input:'); //从命令行读入一个输入至栈顶
-                        await fn('请输入一个值');
+                        readSyncByfs('input:'); //从命令行读入一个输入至栈顶
+                        // await fn('请输入一个值');
                         t++;
                         break;
                 }

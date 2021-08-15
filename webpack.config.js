@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const COMMON_PATH = path.resolve(__dirname, 'src');
+const SERVER_PATH = path.resolve(__dirname, 'server');
 const TEMPLATE_PATH = path.resolve(__dirname, './template');
 const OUTPUT_PATH = 'output_resources';
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -17,6 +18,7 @@ module.exports = (env, argv) => {
         mode: env.mode,
         entry: {
             index: ['babel-polyfill', path.join(COMMON_PATH, 'index.tsx')],
+            server: ['babel-polyfill', path.join(SERVER_PATH, 'server.js')],
         },
         module: {
             rules: [
@@ -39,10 +41,10 @@ module.exports = (env, argv) => {
                             loader: 'less-loader',
                             options: {
                                 lessOptions: {
-                                    javascriptEnabled: true
-                                }
-                            }
-                        }
+                                    javascriptEnabled: true,
+                                },
+                            },
+                        },
                     ],
                 },
                 {
@@ -98,7 +100,9 @@ module.exports = (env, argv) => {
                     title: 'daka_admin_react',
                     filename: 'index.html',
                     template: path.join(TEMPLATE_PATH, 'index.html'),
+                    hot: true,
                     inject: true,
+                    chunks: ['index'],
                 }),
             ],
         });
