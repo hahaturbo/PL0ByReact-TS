@@ -1,9 +1,8 @@
 const webpack = require('webpack');
 const path = require('path');
-const COMMON_PATH = path.resolve(__dirname, 'src');
-const SERVER_PATH = path.resolve(__dirname, 'server');
+const COMMON_PATH = path.resolve(__dirname, '.');
 const TEMPLATE_PATH = path.resolve(__dirname, './template');
-const OUTPUT_PATH = 'output_resources';
+const OUTPUT_PATH = path.join(__dirname, '../static');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -18,7 +17,6 @@ module.exports = (env, argv) => {
         mode: env.mode,
         entry: {
             index: ['babel-polyfill', path.join(COMMON_PATH, 'index.tsx')],
-            server: ['babel-polyfill', path.join(SERVER_PATH, 'server.js')],
         },
         module: {
             rules: [

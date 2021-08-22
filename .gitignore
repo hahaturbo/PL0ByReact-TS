@@ -6,3 +6,4 @@ dist_*/*
 output_resources
 tsconfig.*.json
 yarn-error.log
+/static
